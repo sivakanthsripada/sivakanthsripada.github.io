@@ -1,153 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sivakanth – Software Tester Resume</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sivakanth Portfolio</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f7f7f7;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #333;
-        }
-        h2 {
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 5px;
-        }
-        .section {
-            margin-bottom: 25px;
-        }
-        ul {
-            margin-left: 20px;
-        }
-        .contact a {
-            text-decoration: none;
-            color: #0066cc;
-        }
-    </style>
+<!-- Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* -------- GLOBAL -------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a0033, #000010 70%);
+    overflow-x: hidden;
+    color: white;
+}
+
+/* -------- NEBULA CLOUDS -------- */
+#nebula {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -3;
+    pointer-events: none;
+}
+
+#nebula::before,
+#nebula::after {
+    content: "";
+    position: absolute;
+    width: 1500px;
+    height: 1500px;
+    filter: blur(150px);
+    opacity: 0.45;
+    animation: nebulaMove 45s infinite linear;
+}
+
+/* Pink Nebula */
+#nebula::before {
+    background: radial-gradient(circle, rgba(255,0,200,0.35), transparent 70%);
+    top: -300px;
+    left: -200px;
+}
+
+/* Blue Nebula */
+#nebula::after {
+    background: radial-gradient(circle, rgba(0,150,255,0.35), transparent 70%);
+    bottom: -300px;
+    right: -200px;
+}
+
+@keyframes nebulaMove {
+    0% { transform: translate(0,0) rotate(0deg); }
+    50% { transform: translate(100px,-80px) rotate(180deg); }
+    100% { transform: translate(0,0) rotate(360deg); }
+}
+
+/* -------- NIGHT SKY LAYERS -------- */
+#stars, #stars2, #stars3 {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: -2;
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+/* Shooting star */
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    box-shadow: 0 0 10px white;
+    border-radius: 50%;
+    opacity: 0;
+    transform: rotate(45deg);
+    animation: shoot 1.2s ease-out forwards;
+}
+
+@keyframes shoot {
+    0% { opacity: 1; transform: translate(0,0) scale(1); }
+    100% { opacity: 0; transform: translate(500px,250px) scale(0.2); }
+}
+
+/* -------- RESUME BOX -------- */
+.resume-wrapper {
+    width: 900px;
+    margin: 40px auto;
+    background: rgba(0, 0, 20, 0.55);
+    padding: 40px 50px;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.1);
+    position: relative;
+    animation: fadeIn 1.2s ease;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile Image */
+.profile-img {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #ffffff88;
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+    object-fit: cover;
+}
+
+/* Headings */
+.name-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #7bb6ff;
+}
+
+.job-role {
+    font-size: 17px;
+    margin-top: 5px;
+    color: #aaccff;
+}
+
+.contact a {
+    color: #99c7ff;
+}
+
+/* Two columns */
+.two-col {
+    display: grid;
+    grid-template-columns: 48% 4% 48%;
+    margin-top: 30px;
+}
+
+.partition-line {
+    width: 2px;
+    background: #44679c;
+    border-radius: 2px;
+}
+
+/* Section Titles */
+h2 {
+    font-size: 20px;
+    color: #7bb6ff;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+h3 {
+    color: #94c2ff;
+}
+
+/* Lists */
+ul li {
+    color: #d6e8ff;
+}
+
+</style>
 </head>
 
 <body>
-<div class="container">
 
-    <h1>SRIPADA VENKATA SIVAKANTH</h1>
+<!-- 🌌 Nebula Clouds -->
+<div id="nebula"></div>
+
+<!-- 🌠 Stars -->
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+
+<!-- ⭐ RESUME CONTENT ⭐ -->
+<div class="resume-wrapper">
+    <img src="c:\Users\Venkata Sivakanth\OneDrive\Desktop\pendrive\personal\Profile PIC\profile pic.png" class="profile-img" alt="Profile Photo">
+
+    <div class="name-title">SRIPADA VENKATA SIVAKANTH</div>
+    <div class="job-role">QA Test Engineer</div>
 
     <div class="contact">
-        <p>Anakapalle, Visakhapatnam, Andhra Pradesh</p>
-        <p>Email: <a href="mailto:sivakanthsripada@gmail.com">sivakanthsripada@gmail.com</a></p>
-        <p>Phone: 9491909911</p>
-        <p>
-            <a href="https://github.com/sivakanthsripada" target="_blank">Github</a> |
-            <a href="https://www.linkedin.com/in/sivakanth-1b09a0b1/" target="_blank">LinkedIn</a>
-        </p>
+        <a href="#"><i class="fa-solid fa-phone"></i>9491909911</a>
+        <a href="mailto:sivakanthsripada@gmail.com"><i class="fa-solid fa-envelope"></i>sivakanthsripada@gmail.com</a>
+        <a href="https://linkedin.com/in/sivakanth"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+        <a href="https://github.com/sivakanth"><i class="fa-brands fa-github"></i>GitHub</a>
     </div>
+    <div class="two-col">
+        <!-- LEFT -->
+        <div>
+            <h2>Software QA Tester</h2>
+            <ul><li> Colourmoon Technologies -10/2023 – 09/2025 Visakhapatnam, India</li></ul>
+            <h2>Experience</h2>
+            <h3>Project: We Haul (August 2023 − January2024)</h3>
+            <ul><li>Established a comprehensive testing framework from the ground up, aligning testing processes with strategic goals by preparingover 50 detailed test scenarios and cases, resulting in a 30%reduction in critical bugs pre-deployment</li></ul>
+            <ul><li>Executed test cases that verified functionalities against client expectations, achieving 100% alignment with projectrequirements and enhancing software reliability</li></ul>
+            <ul><li> Identified and tracked over 200 defects in Jira facilitatingtimely resolutions and improving overall software quality </li></ul>
+            <ul><li> Provided actionable feedback on usability and functionality of anew website, leading to a 25% improvement in post-launch usersatisfaction scores</li></ul>
+            <ul><li> Developed automated test scripts for web, mobile, and APIfunctionalities using Selenium and Postman, increasing testingefficiency by 40% and expanding coverage to 90% of keyfunctionalities </li></ul>
+            <ul><li> Conducted comprehensive manual testing (functional,localization, regression), ensuring 95% usability and stabilityacross platforms. </li></ul>
+            <ul><li> Created user-friendly knowledge base documents with Tango,reducing support tickets by 20% and improving client guidanceon application functionality.</li></ul>
+            <ul><li>Streamlined workflows through automation of repetitive tasks,resulting in a 30% reduction in time spent on manual processesand improved onboarding efficiency for new team members </li></ul>
+            <h3>Eclinic-On (January 2024 − June 2025)<h3>
+            <ul><li>Coordinated cross-functional teams to develop a comprehensiveproject testing approach, enhancing collaboration andcommunication. </li></ul>
+            <ul><li>Facilitated scrum events (planning, daily stand-ups, sprint reviews), leading to a 30% reduction in post-release issuesthrough effective code quality assurance during SIT G UATtesting</li></ul>
+            <h3>Maxxwill (June 2024 − February 2025)</h3>
+            <ul><li>Developed meticulous test preparations ensuring comprehensive functional testing</li></ul>
+            <ul><li>Automated regression testing with Selenium, Java, and TestNG,achieving 60% faster testing cycles and improving accuracy by15%.</li></ul>
+            <ul><li>Demonstrated leadership in project management and automation framework development, boosting testing efficiency by 23%</li></ul>
+            <ul><li>Collaborated with stakeholders, achieving a 93% satisfaction rate for requirements and maintaining high-quality software releases.</li></ul>
+            <ul><li>Documented detailed test results and defects, contributing to a10% improvement in software quality and streamlining defectresolution by 97%.</li></ul>
+            <h3>Bhavani High School (February 2025− September 2025)</h3>
+            <ul><li>Led test data preparation and migration events, ensuring 100%accuracy in transitioning diverse account types with zerodisruptions.</li></ul>
+            <ul><li>Designed and executed diverse test scenarios for extensive testcoverage based on various documentation, reducing postrelease issues by 30%.</li></ul>
+            <ul><li>Conducted exploratory testing pre-deployment, leading to a 30% reduction in potential issues.</li></ul>
+            <ul><li>Conducted performance testing with JMeter, resulting in a 20%increase in system throughput.</li></ul>
+            <ul><li> Led an offshore test team of 4, improving overall testingefficiency by 20%.</li></ul>
+        </div>
 
-    <!-- BIO -->
-    <div class="section">
-        <h2>MY BIO</h2>
-        <p>QA Automation Tester with 2+ years of experience in STLC, JMeter, and API Testing. Skilled in test automation frameworks, Agile/Scrum, and defect management with JIRA & TestRail. Strong track record of improving software quality and reducing bug leakage in production.</p>
+        <div class="partition-line"></div>
+
+        <!-- RIGHT -->
+        <div>
+            <h2>Summary</h2>
+            <p>
+            ISTQB-certified Software Test Specialist with 2+years of experience in software testing, QAautomation, and team leadership, including leadingcross-functional teams. Proven expertise indesigning robust QA frameworks, automatingtesting processes, and driving regulatorycompliance in Agile and Waterfall environments.Adept at streamlining workflows using cuttingedge tools such as Selenium and Postmanachieving up to 40% efficiency gains. Skilled inmanaging defect lifecycles, enhancing stakeholdercollaboration, and embedding consumer-focusedtesting strategies to deliver top-tier results.
+            </p>
+            <h2>
+            Q Spiders International Training Institute</h2>
+            <h3>
+            Fire Flink Tool Trader (June 2022 − August 2022)</h3>
+            <ul><li> Contributed to developing and executing automated test scenariosfor functional and non-functional validation in the Trading domain,ensuring seamless integration within the automation framework toenhanceest coverage and reduce manual effort</li></ul>
+            <ul><li> Actively derived, executed, and optimized test scenarios,introducing innovative cases to uncover functional and nonfunctional defects in the Trading domain, while driving seamlessautomation implementation.</li></ul>
+            <ul><li>Derived and executed functional & non-functional test scenarioswith creative edge cases; integrated automation scripts for efficientQA in the Trading domain.</l></u>
+            <h3>
+            Beta Testing (August 2022 − November 2022)</h3>
+            <ul><li>Executed comprehensive functional and non-functionaltesting on the I.D.E. Trading platform, leveraging crowd betatesting to uncover critical issues and enhance platformstability. </li></ul>
+            <ul><li>Conducted functional and non-functional testing of the I.D.E.Trading platform, collaborating with crowd beta testers toidentify and report key defects, ensuring a robust userexperience </li></ul>
+            <ul><li>Tested I.D.E. Trading platform for functional & non-functional issues utilized crowd beta testing to validate platformperformance. </li></ul>
+            <ul><li></li></ul>
+            <ul><li></li></ul>
+            <h2>Skills</h2>
+            <ul>
+            <li>Mobile Manual testing with Eggplant </li>
+
+            <li>Selenium | Java | TestNG</li>
+
+            <li>API Testing – Postman</li> 
+
+            <li>Performance Testing – JMeter</li> 
+
+            <li>Agile / Scrum | JIRA | TestRail</li>
+
+            <li>SQL, HTML </li>
+            </ul>
+
+            <h2>Certifications</h2>
+            <ul>
+            <li>ISTQB Foundation Level</li>
+            <li>Selenium WebDriver</li>
+            <li>JMeter Testing</li>
+            <li>Web Services/ API Testing with Postman + Real-Time Projects</li>
+            </ul>
+
+            <h2>Education</h2>
+            <p><strong>B.Tech Mechanical Engineering</strong><br>2014–2018 | Visakhapatnam</p>
+
+            <h2>Key Achievements At Colourmoon technologies</h2>
+            <ul>
+                <li>Best Performer – Colourmoon Technologies</li>
+                <li>Completed 6 major QA projects</li>
+                <li>Improved app performance by 70%</li>
+            </ul>
+        </div>
     </div>
-
-    <!-- EDUCATION -->
-    <div class="section">
-        <h2>EDUCATION</h2>
-        <ul>
-            <li><strong>B.Tech – Mechanical Engineering</strong>, Chaitanya Engineering College, Visakhapatnam</li>
-            <li><strong>Intermediate – MPC</strong>, Sri Chaitanya Inter College, Visakhapatnam</li>
-            <li><strong>10th – SSC</strong>, Sri Chaitanya Educational Institutions, Visakhapatnam</li>
-        </ul>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <div class="section">
-        <h2>EXPERIENCE</h2>
-        <h3>Colour Moon Technologies – Software Tester</h3>
-        <p><em>Visakhapatnam | August 2023 – September 2025</em></p>
-
-        <ul>
-            <li>Designed and executed manual and automated test cases for web and hybrid apps.</li>
-            <li>Performed functional, regression & performance testing using Selenium, JMeter & FireFlink.</li>
-            <li>Documented test scenarios, test cases, and automation results for clarity.</li>
-            <li>Reduced critical bug leakage by 28% through strong regression automation.</li>
-            <li>Validated login, payments, and uploads in logistics, healthcare & legal-tech domains.</li>
-            <li>Increased test coverage by 35% using Selenium WebDriver & TestNG.</li>
-            <li>Tracked installation progress with 12 testers ensuring smooth deployment.</li>
-            <li>Logged 150+ defects in JIRA with 95% closure within release timelines.</li>
-            <li>Performed smoke, UI, functional & regression testing across multiple domains.</li>
-            <li>Maintained test plans, cases, and bug reports in Excel & TestRail.</li>
-        </ul>
-    </div>
-
-    <!-- PROJECTS -->
-    <div class="section">
-        <h2>MAJOR PROJECTS</h2>
-        <ul>
-            <li><strong>MAXXWILL – Super Vault</strong> (Hybrid App) – Tested secure modules, encryption, OTP, and access control.</li>
-            <li><strong>WEHAUL Logistics</strong> – Logistics hybrid application with live tracking, price integration.</li>
-            <li><strong>TRIHAYA Health Care Services</strong> – Booking, e-commerce and payment system testing.</li>
-            <li><strong>BLEND LIFE</strong> – E-commerce platform testing (orders, payments).</li>
-            <li><strong>OPEN BOX WALE</strong> – Performance and usability testing for shopping platform.</li>
-            <li><strong>BEST IN CLASS – Jewellery App</strong> – Social-media style hybrid app testing.</li>
-        </ul>
-
-        <h3>Key Accomplishments</h3>
-        <ul>
-            <li>Improved page load speed by 40% using JMeter optimization.</li>
-            <li>Identified & resolved memory leak reducing server downtime by 60%.</li>
-        </ul>
-    </div>
-
-    <!-- CERTIFICATIONS -->
-    <div class="section">
-        <h2>CERTIFICATIONS</h2>
-        <ul>
-            <li>Certified Automation Tester – Q Spiders, Chennai</li>
-            <li>Fire Flink Automation Certification</li>
-            <li>Beta Testing & Project Completion – Trading Platform</li>
-        </ul>
-    </div>
-
-    <!-- TECHNICAL SKILLS -->
-    <div class="section">
-        <h2>TECHNICAL SKILLS</h2>
-        <ul>
-            <li><strong>Testing Tools:</strong> Selenium, FireFlink, JMeter, TestNG, Postman</li>
-            <li><strong>Management:</strong> JIRA, TestRail, Excel</li>
-            <li><strong>Automation:</strong> Java, Selenium, TestNG</li>
-            <li><strong>Performance:</strong> JMeter Load Testing</li>
-            <li><strong>OS:</strong> Windows, Mac, Hybrid & Web Apps</li>
-            <li><strong>Domains:</strong> Logistics, Healthcare, Ecommerce, Secure Vault</li>
-        </ul>
-    </div>
-
-    <!-- ADDITIONAL EXPERIENCE -->
-    <div class="section">
-        <h2>ADDITIONAL EXPERIENCE</h2>
-        <ul>
-            <li><strong>All Sec Technologies – Customer Care Executive</strong>, Chennai (Jan 2022 – Dec 2022)</li>
-            <li><strong>Jayabheri Automotive Works – Technical Service Advisor</strong>, Visakhapatnam (Jan 2021 – Dec 2021)</li>
-        </ul>
-    </div>
-
-    <!-- ASSURANCE -->
-    <div class="section">
-        <h2>PROFESSIONAL ASSURANCE</h2>
-        <p>I assure you that I will bring dedication, professionalism, and strong testing skills to any Automation Testing role. My knowledge in automation, debugging, and performance optimization will support your organization’s quality goals.</p>
-    </div>
-
 </div>
+
+<!-- ⭐ STAR + SHOOTING STAR JAVASCRIPT ⭐ -->
+<script>
+
+// ------- CREATE STAR LAYERS -------
+function generateStars(layer, count, minSize, maxSize, speed) {
+    for (let i = 0; i < count; i++) {
+        let s = document.createElement("div");
+        s.classList.add("star");
+
+        let size = Math.random() * (maxSize - minSize) + minSize;
+        s.style.width = size + "px";
+        s.style.height = size + "px";
+
+        s.style.top = Math.random() * window.innerHeight + "px";
+        s.style.left = Math.random() * window.innerWidth + "px";
+
+        s.dataset.speed = speed;
+        layer.appendChild(s);
+    }
+}
+
+generateStars(document.getElementById("stars"), 150, 1, 2, 0.15);
+generateStars(document.getElementById("stars2"), 120, 2, 3, 0.25);
+generateStars(document.getElementById("stars3"), 80, 3, 4, 0.55);
+
+// ------- SCROLL PARALLAX -------
+window.addEventListener("scroll", () => {
+    let y = window.scrollY;
+    document.querySelectorAll(".star").forEach(star => {
+        let spd = star.dataset.speed;
+        star.style.transform = `translateY(${y * spd}px)`;
+    });
+});
+
+// ------- SHOOTING STARS -------
+function launchShootingStar() {
+    let st = document.createElement("div");
+    st.classList.add("shooting-star");
+
+    st.style.top = Math.random() * (window.innerHeight * 0.4) + "px";
+    st.style.left = Math.random() * (window.innerWidth * 0.5) + "px";
+
+    document.body.appendChild(st);
+    setTimeout(() => st.remove(), 1200);
+}
+
+setInterval(() => {
+    launchShootingStar();
+}, Math.random() * 4000 + 3000);
+
+</script>
+
 </body>
 </html>
